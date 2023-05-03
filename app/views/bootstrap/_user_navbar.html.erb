@@ -7,16 +7,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <%= link_to "Sign in", "/user_sign_in", class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Sign up", "/user_sign_up", class: "nav-link" %>
+            <%= link_to "Profile", "/edit_user_profile", class: "nav-link" %>
           </li>
           <li class="nav-item active">
             <%= link_to "Feed", shoes_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
             <%= link_to "Add Shoe", new_shoe_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Liked Shoes", new_shoe_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Sign Out", "/user_sign_out", class: "nav-link" %>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

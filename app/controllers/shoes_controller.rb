@@ -36,20 +36,10 @@ class ShoesController < ApplicationController
 
   def update
     @shoe = Shoe.find(params.fetch(:id))
-    #shoe_attributes = params.require(:shoe).permit(:image, :title, :description, :deadstock, :authentic)
-    #shoe = Shoe.where(shoe_attributes)
-
-    # shoe.image = params.fetch(:image)
-    # shoe.title = params.fetch(:title)
-    # shoe.description = params.fetch(:description)
-    # shoe.deadstock = params.fetch(:deadstock)
-    # shoe.authentic = params.fetch(:authentic)
 
     if @shoe.update(shoe_attributes)
-      #redirect_to shoe_url(shoe), notice: "Movie successfully updated"
       redirect_to @shoe, notice: "Movie updated successfully"
     else
-      #redirect_to shoe_url(shoe), alert: "Movie failed to update successfully"
       render "edit"
     end
   end
@@ -60,9 +50,9 @@ class ShoesController < ApplicationController
     #@shoe.destroy
 
     the_id = params.fetch(:id)
-    movie = Movie.where({ :id => the_id }).first
+    shoe = Shoe.where({ :id => the_id }).first
 
-    movie.delete
+    shoe.delete
 
     redirect_to shoes_url, notice: "Shoe deleted successfully"
     #redirect_to("/movies", { :notice => "Movie deleted successfully."} )

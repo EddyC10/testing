@@ -18,8 +18,13 @@
 
   </head>
 
-  <body class="bg-light">  
-    <%= render template: "bootstrap/_navbar" %>
+  <body class="bg-light">
+    <% if @current_user != nil %>
+      <%= render template: "bootstrap/_user_navbar" %>
+    <% else %>
+      <%= render template: "bootstrap/_navbar" %>
+    <% end %>
+
     <div class="container">
       <div style="color: green">
         <% if notice.present? %>
