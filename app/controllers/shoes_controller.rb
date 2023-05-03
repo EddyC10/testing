@@ -1,6 +1,6 @@
 class ShoesController < ApplicationController
   def index
-    @shoes = Shoe.order(created_at: :desc)
+    @shoes = Shoe.order(created_at: :asc)
 
     respond_to do |format|
       format.json { render json: @movies }
