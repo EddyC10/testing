@@ -6,8 +6,8 @@
 #  body       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  author_id  :integer
 #  shoe_id    :integer
-#  user_id    :integer
 #
 class Comment < ApplicationRecord
 end

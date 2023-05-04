@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   # get "/shoes/new" => "shoes#new", as: :new_shoe
 
   # #READ
-    get "/shoes/liked" => "likes#user_likes"
+  # get "/shoes/liked" => "likes#user_likes"
   # get "/shoes" => "shoes#index"
   # get "/shoes/:id" => "shoes#show", as: :shoe
 

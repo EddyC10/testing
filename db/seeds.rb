@@ -14,12 +14,17 @@ require 'faker'
     sizes_array.push(count.to_s)
   end
 
+  owner_id = []
+  (1..100).each do |count|
+    owner_id.push(count.to_s)
+  end
+
   shoe_type = ['Mens', 'Womens', 'Big Kids', 'Little Kids', 'Toddlers']
   titles = Faker::Name.name
   descriptions = Faker::Quote.famous_last_words
   boolean = [true, false]
   shoes = Shoe.new(
-
+    owner_id: owner_id.sample(),
     image: "https://google.com",
     title: titles,
     description: descriptions,

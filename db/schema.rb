@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_03_171535) do
+ActiveRecord::Schema.define(version: 2023_05_04_162247) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "user_id"
+    t.integer "author_id"
     t.integer "shoe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "fan_id"
     t.integer "shoe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(version: 2023_05_03_171535) do
     t.text "description"
     t.string "shoe_type"
     t.integer "size"
-    t.boolean "deadstock"
     t.boolean "authentic"
+    t.boolean "deadstock"
+    t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
