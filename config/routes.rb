@@ -35,7 +35,6 @@ Rails.application.routes.draw do
   # get "/shoes/new" => "shoes#new", as: :new_shoe
 
   # #READ
-  # get "/shoes/liked" => "likes#user_likes"
   # get "/shoes" => "shoes#index"
   # get "/shoes/:id" => "shoes#show", as: :shoe
 
@@ -45,5 +44,16 @@ Rails.application.routes.draw do
 
   # #DELETE
   # delete "/shoes/:id" => "shoes#destroy"
+
+
+  # Likes
+  get "/user_liked_shoe" => "likes#user_likes"
+  get "/user_unliked_shoe/:id" => "likes#user_unliked"
+
+  #Delete debugging 
+  get "/delete/:id" => "shoes#destroy"
+
+  #Comments 
+  get "/comments" => "comments#create_comment"
 
 end

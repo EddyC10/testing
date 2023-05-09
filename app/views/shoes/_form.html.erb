@@ -1,6 +1,11 @@
 <%= form_with(model: @shoe) do |form| %>
 
   <div>
+    <%= form.label :owner_id %>
+    <%= form.select :owner_id, [@current_user.id] %>
+  </div>
+
+  <div>
     <%= form.label :image %>
     <%= form.file_field :image %>
   </div>

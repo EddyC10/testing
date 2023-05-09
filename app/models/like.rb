@@ -9,4 +9,6 @@
 #  shoe_id    :integer
 #
 class Like < ApplicationRecord
+  belongs_to :user, class_name: "User", foreign_key: "fan_id"
+  belongs_to :shoe, class_name: "Shoe", foreign_key: "shoe_id"
 end

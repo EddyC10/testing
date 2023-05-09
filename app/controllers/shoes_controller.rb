@@ -70,6 +70,6 @@ class ShoesController < ApplicationController
   end
 
   def shoe_attributes
-    shoe_attributes = params.require(:shoe).permit(:image, :title, :description, :deadstock, :authentic)
+    shoe_attributes = params.require(:shoe).permit(:owner_id, :image, :title, :description, :deadstock, :authentic)
   end
 end
