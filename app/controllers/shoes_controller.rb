@@ -1,6 +1,6 @@
 class ShoesController < ApplicationController
   def index
-    @shoes = Shoe.order(created_at: :asc)
+    @shoes = Shoe.order(created_at: :desc)
 
     respond_to do |format|
       format.json { render json: @movies }
@@ -56,6 +56,11 @@ class ShoesController < ApplicationController
 
     redirect_to shoes_url, notice: "Shoe deleted successfully"
     #redirect_to("/movies", { :notice => "Movie deleted successfully."} )
+  end
+
+  def liked_shoes
+
+    render "shoes/liked_shoes.html.erb"
   end
 
   private 

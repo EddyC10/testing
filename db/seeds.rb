@@ -23,9 +23,10 @@ require 'faker'
   titles = Faker::Name.name
   descriptions = Faker::Quote.famous_last_words
   boolean = [true, false]
+  images = Rails.root.join("app/assets/images/shoe_pic.jpg").open
   shoes = Shoe.new(
     owner_id: owner_id.sample(),
-    image: "https://google.com",
+    image: images,
     title: titles,
     description: descriptions,
     shoe_type: shoe_type.sample(),
@@ -34,4 +35,15 @@ require 'faker'
     authentic: boolean.sample()
   )
   shoes.save
+end
+
+100.times do
+  email_names = Faker::Name.first_name
+  usernames = Faker::Name.first_name
+  users = User.new(
+    email: email_names + "@example.com",
+    username: usernames,
+    password_digest: "hey"
+  )
+  users.save
 end

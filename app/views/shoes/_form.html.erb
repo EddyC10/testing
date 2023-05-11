@@ -1,4 +1,13 @@
 <%= form_with(model: @shoe) do |form| %>
+  <% if @shoe.errors.any? %>
+
+    <h2>No boy <%#= pluralize(@shoe.errors.count, "error") %> </h2>
+
+        <%# @shoe.errors.each do |error| %>
+          <li><%#= error %></li>
+        <%# end %>
+
+  <% end %>
 
   <div>
     <%= form.label :owner_id %>
@@ -41,7 +50,7 @@
   </div>
 
   <div>
-    <%= form.button "Update Collection", class: "border border-dark"%>
+    <%= form.button "Add to Collection", class: "border border-dark"%>
   </div>
 
 <% end %>

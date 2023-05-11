@@ -15,7 +15,10 @@
 #  owner_id    :integer
 #
 class Shoe < ApplicationRecord
-  has_many :shoes, class_name: "Shoe", foreign_key: "owner_id"
+  belongs_to :owner, class_name: "User", foreign_key: "owner_id"
+
   has_many :comments, class_name: "Comment", foreign_key: "author_id"
   has_many :likes, class_name: "Like", foreign_key: "fan_id"
+
+  mount_uploader :image, ImageUploader
 end

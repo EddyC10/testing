@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do             
   # Routes for the User account:
 
   # SIGN UP FORM
@@ -26,7 +26,11 @@ Rails.application.routes.draw do
              
   #------------------------------
 
+  #------------------------------
+
   root "shoes#index"
+
+  get "/shoes/liked_shoes" => "shoes#liked_shoes", as: :liked_shoes
   
   resources :shoes
   # --------------------------------------------------------
@@ -54,6 +58,10 @@ Rails.application.routes.draw do
   get "/delete/:id" => "shoes#destroy"
 
   #Comments 
-  get "/comments" => "comments#create_comment"
+  get "/comments" => "comments#index"
+  post "/insert_comment" => "comments#create_comment"
+
+  #Liked Shoes
+  # get "/liked_shoes" => "shoes#liked_shoes"
 
 end

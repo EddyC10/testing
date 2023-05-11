@@ -1,17 +1,34 @@
 <div class="card">
+<% if @current_user != nil %>
   <div class="card-header">
-    <%= link_to "Shoe ##{shoe.id}", shoe, class: "h3" %>
+    <%= link_to "#{shoe.owner.username}'s Shoe", shoe, class: "h3" %>
   </div>
 
-  <div class="card-body">
-    <dl>
+<% else %>
+<% end %>
 
+  <div class="card-body">
+
+    <div class="row">
+    <div class="col">
+      <dl>
+        <dt class="">Image</dt>
+        <div class="btn btn-block"></div>
+        <dd class="text-center"><img src="<%= shoe.image %>" height="280px"></dd>
+      </dl>
+    </div>
+
+    <div class="col">
+    <dl>
+      <% if @current_user != nil %>
       <dt>
-        Owner Id
+        Owner
       </dt>
       <dd>
-        <%= shoe.owner_id %>
+        <%= shoe.owner.username %>
       </dd>
+      <% else %>
+      <% end %>
 
       <dt>
         Title
@@ -56,10 +73,15 @@
         <%= shoe.authentic %>
       </dd>
 
-    </dl>
+      </dl>
     </div>
+    </div>
+
+  </div>
 
   <div class="btn btn-block card-footer">
     Last updated <%= time_ago_in_words(shoe.updated_at) %> ago
   </div>
 </div>
+
+<div class="row"><div class="d-grid btn btn-large btn-block"></div></div>
