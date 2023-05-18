@@ -1,11 +1,13 @@
 databases:
   - name: collex
+    plan: free
     databaseName: collex
     user: collex
 
 services:
   - type: web
     name: collex
+    plan: free
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"

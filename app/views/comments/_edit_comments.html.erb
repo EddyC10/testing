@@ -131,7 +131,6 @@
     <div class="row"><div class="d-grid btn btn-large btn-block"></div></div>
 
 
-
     <% Comment.all.each do |comment|%>
 
       <% if comment.shoe_id == shoe.id %>
@@ -139,14 +138,24 @@
           <div>
             <dt><%= comment.user.username %></dt>
             <% if comment.author_id == @current_user.id %>
-              <a href="/edit_comments" class="text-success"><span class="float-right"><i class="fa-solid fa-ellipsis fa-lg"></i></span></a>
-            <% else %>
-            <% end %>
+
+            <form action="/edit_comments/<%= comment.id %>" method="post">
+              <a href="/comments" class="text-success"><span class="float-right"><i class="fa-solid fa-ellipsis fa-lg"></i></span></a>
+              <input type="hidden" value="<%= shoe.id %>" name="query_shoe_id">
+              <label for="edit_comment"></label>
+              <textarea id="edit_comment" style="width: 50%;" type="text" row="3" maxlength="100" class="d-block" name="query_comment"><%= comment.body %></textarea>
+
+              <div class="row"><div class="d-grid btn btn-large btn-block"></div></div>
+              <button class="btn btn-sm btn-success" style="border-radius: 50px;">Update</button>
+            </form>
+            <a href="/delete_comment/<%= comment.id %>" class="btn btn-sm btn-danger float-right" style="border-radius: 50px; margin-top: -32px;">Delete</a>
           </div>
+            <% else %>
 
           <dd><%= comment.body %></dd>
+          <em class="fs-3 d-flex justify-content-end "><%= time_ago_in_words(comment.created_at) %> ago</em>
 
-          <em class="fs-3 float-right"><%= time_ago_in_words(comment.created_at) %> ago</em>
+            <% end %>
         </dl>
       <% else %>
       <% end %>
@@ -162,7 +171,7 @@
 
       <div class="row"><div class="d-grid btn btn-large btn-block"></div></div> <!-- Added spacing for the button. Making it more appealing-->
 
-      <button class="border border-dark float-right bg-success text-light btn-sm" style="border-radius: 50px">Add comment</button>
+      <button class="btn float-right btn-success btn-sm" style="border-radius: 50px">Add comment</button>
     </form>
 
   </div>

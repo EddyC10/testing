@@ -54,11 +54,14 @@ Rails.application.routes.draw do
   get "/user_liked_shoe" => "likes#user_likes"
   get "/user_unliked_shoe/:id" => "likes#user_unliked"
 
-  #Delete debugging 
+  #Delete 
   get "/delete/:id" => "shoes#destroy"
+  get "/delete_comment/:id" => "comments#destroy"
 
   #Comments 
   get "/comments" => "comments#index"
+  get "/edit_comments" => "comments#edit"
+  post "/edit_comments/:id" => "comments#update_comment"
   post "/insert_comment" => "comments#create_comment"
 
   #Liked Shoes
