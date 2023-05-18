@@ -1,0 +1,21 @@
+databases:
+  - name: collex
+    plan: free
+    databaseName: collex
+    user: collex
+
+services:
+  - type: web
+    name: collex
+    plan: free
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: collex
+          property: connectionString
+      - key: 27acd723dc764ae6fae032c396ca6406
+        sync: false
+ 
