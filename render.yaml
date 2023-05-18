@@ -16,6 +16,6 @@ services:
         fromDatabase:
           name: collex
           property: connectionString
-      - key: 27acd723dc764ae6fae032c396ca6406
+      - key: RAILS_MASTER_KEY
         sync: false
  
